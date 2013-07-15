@@ -39,12 +39,12 @@ private $algorithmForencrypt = "";
     
     public function encryptWithMhash($text, $hmac){
         $cipher = mhash(MHASH_TIGER160, $text, $hmac);
-        return $cipher; // not strong if you use this bin2hex()  
-        //remove bin2hex() when you use in real hosting
+        return $cipher; // not strong if you use here bin2hex()
+        //returning cipher in this format may give error(not 100% sure) if charset is different 
     }//end of method
     
     public function encryptWithS2K($password, $key, $length) {
-        $s2k = mhash_keygen_s2k(MHASH_TIGER160, $password, $key, $length); //gives strong and random salt -8bit is necessary
+        $s2k = mhash_keygen_s2k(MHASH_TIGER160, $password, $key, $length); //gives strong and random salt, -8bit is necessary
         return bin2hex($s2k); // not strong if you use this bin2hex()  
     }//end of method
        
