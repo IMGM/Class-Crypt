@@ -3,8 +3,7 @@ require_once('class.php');
 class Crypt{ 
 private $iv = "*********0*********0*********032"; //32 size of rijndael and cbc
 private $key = "***IAMGOODGUYBUTILOVEBADGIRLS***"; //don't exceed above 32 for rijndael
-private $algorithmForencrypt = "";
-
+//please use Keys and Initialization Vector carefully, the Key or IV size should be same as Block size
     public function encryptOneWay($plaintext){
         //32 size
         $iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_CBC);
